@@ -1,0 +1,24 @@
+Testbed
+=======
+
+Testbed lets you create simple one line tests against a common block:
+
+  testbed "call my test function" do |input| 
+    subject = MyObject.new(input) 
+    subject.method_to_test 
+  end 
+  verify_that(1).returns("fred") verify_that(2).returns(3)  
+  verify_that(2).is_true
+  verify_that(3).is_false
+
+The testbed method takes a block. Any verify_that methods attach to the most recently declared testbed, in the same way that a Rake task attaches to the most recently declared desc method. The test names are based on the string argument to the testbed call and the arguments to verify_that.
+
+Note that it's generally better to have literal objects in verify_that and create any ActiveRecord or other objects inside the testbed block
+
+Example
+=======
+
+Example goes here.
+
+
+Copyright (c) 2009 Noel Rappin, released under the MIT license
